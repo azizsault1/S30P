@@ -34,13 +34,13 @@ public class Principal extends javax.swing.JFrame {
 
         desktop = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        menuCadastro = new javax.swing.JMenu();
+        menuProprietarios = new javax.swing.JMenuItem();
+        menuImoveis = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuSair = new javax.swing.JMenuItem();
+        menuMovimento = new javax.swing.JMenu();
+        menuRelatorios = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SU Software - Gestão de Imóveis");
@@ -51,40 +51,40 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Cadastro");
+        menuCadastro.setText("Cadastro");
 
-        jMenuItem1.setText("Proprietários....");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuProprietarios.setText("Proprietários....");
+        menuProprietarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuProprietariosActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        menuCadastro.add(menuProprietarios);
 
-        jMenuItem3.setText("Imóveis");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuImoveis.setText("Imóveis");
+        menuImoveis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuImoveisActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        menuCadastro.add(menuImoveis);
+        menuCadastro.add(jSeparator1);
 
-        jMenuItem4.setText("Condomínios");
-        jMenu1.add(jMenuItem4);
-        jMenu1.add(jSeparator1);
-
-        jMenuItem2.setText("Sair");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuSair.setText("Sair");
+        menuSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuSairActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        menuCadastro.add(menuSair);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(menuCadastro);
 
-        jMenu2.setText("Movimento");
-        jMenuBar1.add(jMenu2);
+        menuMovimento.setText("Movimento");
+        jMenuBar1.add(menuMovimento);
+
+        menuRelatorios.setText("Relatórios");
+        jMenuBar1.add(menuRelatorios);
 
         setJMenuBar(jMenuBar1);
 
@@ -102,15 +102,15 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuProprietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProprietariosActionPerformed
       CadastroProprietario cadastro = new CadastroProprietario(new Proprietarios());
       desktop.add(cadastro);
       cadastro.show();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuProprietariosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSairActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuSairActionPerformed
 
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         Dimension d = ((Principal)evt.getSource()).getSize();        
@@ -118,9 +118,9 @@ public class Principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_formComponentResized
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuImoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuImoveisActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuImoveisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,13 +167,13 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane desktop;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JMenu menuCadastro;
+    private javax.swing.JMenuItem menuImoveis;
+    private javax.swing.JMenu menuMovimento;
+    private javax.swing.JMenuItem menuProprietarios;
+    private javax.swing.JMenu menuRelatorios;
+    private javax.swing.JMenuItem menuSair;
     // End of variables declaration//GEN-END:variables
 }
