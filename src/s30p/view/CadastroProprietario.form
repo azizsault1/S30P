@@ -47,8 +47,6 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Cidades&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="s30p.view.ProprietarioValidator" name="proprietarioValidator">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
@@ -216,12 +214,14 @@
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblConj" alignment="3" pref="37" max="32767" attributes="0"/>
-                          <Component id="txtConj" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="lblEstCivil" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="cbEstCivil" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblConj" alignment="3" pref="37" max="32767" attributes="0"/>
+                              <Component id="txtConj" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -253,9 +253,6 @@
               <BindingProperties>
                 <BindingProperty name="text" source="proprietario" sourcePath="${nome}" target="txtNome" targetPath="text" updateStrategy="0" immediately="false">
                   <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-                  <Property name="validator" type="org.jdesktop.beansbinding.Validator" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                    <ComponentRef name="proprietarioValidator"/>
-                  </Property>
                 </BindingProperty>
               </BindingProperties>
             </Component>

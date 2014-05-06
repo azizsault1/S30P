@@ -39,7 +39,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         proprietario = new model.Proprietarios();
         cidadesQuery = java.beans.Beans.isDesignTime() ? null : S30PPUEntityManager.createQuery("SELECT c FROM Cidades c");
         cidadesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : cidadesQuery.getResultList();
-        proprietarioValidator = new s30p.view.ProprietarioValidator();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         painelPessoal = new javax.swing.JPanel();
         lblnome = new javax.swing.JLabel();
@@ -103,7 +102,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         lblnome.setText("Nome:");
 
         org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietario, org.jdesktop.beansbinding.ELProperty.create("${nome}"), txtNome, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        binding.setValidator(proprietarioValidator);
         bindingGroup.addBinding(binding);
 
         buttonGroup1.add(rbPessoaFisica);
@@ -268,12 +266,13 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                             .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblConj, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                    .addComponent(txtConj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblEstCivil)
-                        .addComponent(cbEstCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbEstCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblConj, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                        .addComponent(txtConj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbPessoaJur)
@@ -567,7 +566,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel painelEndereco;
     private javax.swing.JPanel painelPessoal;
     private model.Proprietarios proprietario;
-    private s30p.view.ProprietarioValidator proprietarioValidator;
     private javax.swing.JRadioButton rbPessoaFisica;
     private javax.swing.JRadioButton rbPessoaJur;
     private javax.swing.JTextField txtBairro;
