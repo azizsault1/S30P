@@ -69,7 +69,7 @@ public class Proprietarios implements Serializable {
     @Column(name = "tipo")
     private String tipo;
     @Column(name = "rcpf")
-    private Integer rcpf;
+    private String rcpf;
     @Column(name = "cnpj")
     private String cnpj;
     @Column(name = "telefone1")
@@ -146,12 +146,12 @@ public class Proprietarios implements Serializable {
         changeSupport.firePropertyChange("tipo", oldTipo, tipo);
     }
 
-    public Integer getRcpf() {
+    public String getRcpf() {
         return rcpf;
     }
 
-    public void setRcpf(Integer rcpf) {      
-        Integer oldRcpf = this.rcpf;
+    public void setRcpf(String rcpf) {      
+        String oldRcpf = this.rcpf;
         this.rcpf = rcpf;
         changeSupport.firePropertyChange("rcpf", oldRcpf, rcpf);
     }

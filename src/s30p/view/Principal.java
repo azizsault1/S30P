@@ -9,6 +9,7 @@ package s30p.view;
 import java.awt.Dimension;
 import javax.swing.JInternalFrame;
 import javax.swing.JFrame;
+import model.Proprietarios;
 /**
  *
  * @author koonjshah
@@ -102,7 +103,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      CadastroProprietario cadastro = new CadastroProprietario(this);
+      CadastroProprietario cadastro = new CadastroProprietario(new Proprietarios());
       desktop.add(cadastro);
       cadastro.show();
     }//GEN-LAST:event_jMenuItem1ActionPerformed

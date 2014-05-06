@@ -123,7 +123,7 @@ public class Cidades implements Serializable {
 
     @Override
     public String toString() {
-        return "s30p.view.Cidades[ idcidades=" + idcidades + " ]";
+        return this.getNome();
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
