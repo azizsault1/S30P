@@ -7,7 +7,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import model.Enderecos;
 
-@Generated(value="EclipseLink-2.5.1.v20130918-rNA", date="2014-05-06T14:14:21")
+@Generated(value="EclipseLink-2.5.1.v20130918-rNA", date="2014-05-06T17:34:32")
 @StaticMetamodel(Proprietarios.class)
 public class Proprietarios_ { 
 
@@ -23,7 +23,7 @@ public class Proprietarios_ {
     public static volatile SingularAttribute<Proprietarios, String> telefone3;
     public static volatile SingularAttribute<Proprietarios, BigDecimal> renda;
     public static volatile SingularAttribute<Proprietarios, BigDecimal> fgts;
-    public static volatile SingularAttribute<Proprietarios, Integer> rcpf;
+    public static volatile SingularAttribute<Proprietarios, String> rcpf;
     public static volatile SingularAttribute<Proprietarios, String> estcivil;
     public static volatile SingularAttribute<Proprietarios, String> conjuge;
     public static volatile SingularAttribute<Proprietarios, Enderecos> enderecosIdenderecos;
