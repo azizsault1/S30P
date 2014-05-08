@@ -12,4 +12,14 @@ package model;
  */
 public enum Selecao {
     Proprietario, Cliente, Parceiro, Fornecedor, PServico, Impostos;
+
+    public static Selecao parser(String toString) {
+
+        switch(toString){
+            case "":
+                return Selecao.Proprietario;
+                    
+            
+        }
+    }
 }

@@ -91,7 +91,7 @@ public class Proprietarios implements Serializable {
     private Integer sequencia;
     @Enumerated(EnumType.ORDINAL)
     @Column(name = "selecao")
-    private String selecao;
+    private Selecao selecao;
     @Column(name = "chavecli")
     private Integer chavecli;
     @Column(name = "estcivil")
@@ -124,7 +124,7 @@ public class Proprietarios implements Serializable {
     private void init(){
         this.tipo = "F";
         this.estcivil = "Solteiro";
-        this.selecao = 
+        this.selecao = Selecao.Proprietario;
     }
 
     public Integer getIdproprietarios() {
@@ -247,12 +247,12 @@ public class Proprietarios implements Serializable {
         changeSupport.firePropertyChange("sequencia", oldSequencia, sequencia);
     }
 
-    public String getSelecao() {
+    public Selecao getSelecao() {
         return selecao;
     }
 
-    public void setSelecao(String selecao) {
-        String oldSelecao = this.selecao;
+    public void setSelecao(Selecao selecao) {
+        Selecao oldSelecao = this.selecao;
         this.selecao = selecao;
         changeSupport.firePropertyChange("selecao", oldSelecao, selecao);
     }

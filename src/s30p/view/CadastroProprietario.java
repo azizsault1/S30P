@@ -9,6 +9,7 @@ package s30p.view;
 import java.util.Calendar;
 import javax.swing.JComboBox;
 import model.Proprietarios;
+import model.Selecao;
 /**
  *
  * @author koonjshah
@@ -608,7 +609,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cbEstCivilActionPerformed
 
     private void cbCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCodigoActionPerformed
-        proprietario.setSelecao(cbCodigo.getSelectedItem().toString());
+        proprietario.setSelecao(Selecao.parser(cbCodigo.getSelectedItem().toString()));
     }//GEN-LAST:event_cbCodigoActionPerformed
 
 
