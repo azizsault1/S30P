@@ -8,13 +8,14 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import model.Enderecos;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -27,6 +28,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
+import model.Enderecos;
 
 /**
  *
@@ -87,6 +89,7 @@ public class Proprietarios implements Serializable {
     private String email;
     @Column(name = "sequencia")
     private Integer sequencia;
+    @Enumerated(EnumType.ORDINAL)
     @Column(name = "selecao")
     private String selecao;
     @Column(name = "chavecli")
@@ -103,17 +106,25 @@ public class Proprietarios implements Serializable {
     private Enderecos enderecosIdenderecos;
 
     public Proprietarios() {
+       this.init();
     }
 
     public Proprietarios(Integer idproprietarios) {
         this.idproprietarios = idproprietarios;
-        this.tipo = "F";
+        this.init();
     }
 
     public Proprietarios(Integer idproprietarios, String nome) {
         this.idproprietarios = idproprietarios;
         this.nome = nome;
+        this.init();
+        
+    }
+    
+    private void init(){
         this.tipo = "F";
+        this.estcivil = "Solteiro";
+        this.selecao = 
     }
 
     public Integer getIdproprietarios() {
