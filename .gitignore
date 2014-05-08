@@ -1,4 +1,4 @@
 /dist/
-*.properties
-build/
-*_.java
+*.class
+private.xml
+/build/
