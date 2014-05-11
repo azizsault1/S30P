@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="title" type="java.lang.String" value="SU Software - Cadastro de Unidades"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[710, 438]"/>
+    </Property>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="634" max="-2" attributes="0"/>
+              <EmptySpace pref="50" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jTabbedPane1" min="-2" pref="370" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="paneProprietario">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Descri&#xe7;&#xe3;o">
+                <Property name="tabTitle" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="152" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel1">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Dados do condominio"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Dados do imovel"/>
+              </AccessibilityProperties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblProprierario" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtProprierario" min="-2" pref="389" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblCondominio" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblBloco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblApto" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblCasa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtCondominio" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="txtBloco" min="-2" pref="85" max="-2" attributes="0"/>
+                                              <Component id="txtApto" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="txtCasa" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="88" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblProprierario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtProprierario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblBloco" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBloco" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblApto" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblProprierario">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Propriet&#xe1;rio:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtProprierario">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCondominio">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Condom&#xed;nio:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCondominio">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblBloco">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Bloco:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBloco">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblApto">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apto:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtApto">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCasa">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Casa:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCasa">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCasaActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="paneCaracteristica">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Caracter&#xed;stica">
+                <Property name="tabTitle" type="java.lang.String" value="Caracter&#xed;stica"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSalas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHome" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="txtHome" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="txtSalas" min="-2" pref="37" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblEscritorio" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtEscritorio" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblVaranda" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblQuartos" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtQuartos" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="txtVaranda" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="txtSuite" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="txtCloset" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Component id="txtLavabo" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtCozinha" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblSuite" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCloset" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLavabo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblCozinha" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblDespensa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtDespensa" min="-2" pref="38" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblAreaserv" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtAreaserv" min="-2" pref="43" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="lblDependencia" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="txtDependeicna" min="-2" pref="41" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="checkGourmet" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkRebgesso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkLcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkZcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkCcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkScarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkQcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkDcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkAscarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="checkGcoberta" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkGpresa" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkGlivre" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkPteletronico" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkAqsolar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkJardim" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkQuintal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkGdescoberta" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="checkDpcarmario" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="79" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblSalas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSalas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkRebgesso" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkJardim" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkQuintal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblVaranda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtVaranda" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkPteletronico" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkGourmet" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="checkAqsolar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkGlivre" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkGpresa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkGcoberta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="checkGdescoberta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkScarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblSuite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSuite" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkQcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="checkCcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCloset" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="txtCloset" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblLavabo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtLavabo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkLcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblCozinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtCozinha" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkZcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblDespensa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDespensa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkDcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblAreaserv" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="txtAreaserv" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="checkAscarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblDependencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtDependeicna" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkDpcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblEscritorio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEscritorio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblSalas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salas:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtSalas">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSalasActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHome">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Home:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtHome">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtHomeActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblVaranda">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Varanda:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtVaranda">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVarandaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblQuartos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quartos:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtQuartos">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSuite">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Su&#xed;te:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtSuite">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSuiteActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCloset">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Closet:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCloset">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtClosetActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLavabo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lavabo:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtLavabo">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLavaboActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCozinha">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cozinha:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCozinha">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCozinhaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDespensa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Despensa:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDespensa">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblAreaserv">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea servi&#xe7;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblDependencia">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dependencia:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtAreaserv">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtAreaservActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtDependeicna">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEscritorio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Escrit&#xf3;prio:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtEscritorio">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkRebgesso">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rebaixada gesso"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkGourmet">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Gourmet"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGourmetActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkQcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkQcarmarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkScarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkScarmarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkCcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkLcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkLcarmarioActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkZcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkDcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkAscarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkPteletronico">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Port&#xe3;o eletronico"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkAqsolar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Aquecimento solar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkCirctv">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Circuito TV"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkGlivre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem livre"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkGpresa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem presa"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGpresaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkGcoberta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem coberta"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGcobertaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkGdescoberta">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem descoberta"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGdescobertaActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkJardim">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jardim"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkQuintal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Quintal"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkDpcarmario">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Endere&#xe7;o/Complemento">
+                <Property name="tabTitle" type="java.lang.String" value="Endere&#xe7;o/Complemento"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="215" max="32767" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Container class="javax.swing.JPanel" name="jPanel3">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                    <TitledBorder title="Complemento"/>
+                  </Border>
+                </Property>
+              </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Complemento"/>
+              </AccessibilityProperties>
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblBloco1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblApto1" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCasa1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="txtBloco1" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
+                              <Component id="txtApto1" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="txtCasa1" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace pref="381" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblBloco1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBloco1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblApto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtApto1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="lblCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="lblBloco1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Bloco:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtBloco1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblApto1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Apto:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtApto1">
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblCasa1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Casa:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtCasa1">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCasa1ActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
