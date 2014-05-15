@@ -4,10 +4,12 @@
  * and open the template in the editor.
  */
 
-package model;
+package model.beans;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,44 +17,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
  * @author koonjshah
  */
 @Entity
-@Table(name = "condominios")
+@Table(name = "area_externa")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Condominios.findAll", query = "SELECT c FROM Condominios c"),
-    @NamedQuery(name = "Condominios.findByIdcondominios", query = "SELECT c FROM Condominios c WHERE c.idcondominios = :idcondominios"),
-    @NamedQuery(name = "Condominios.findByPiscina", query = "SELECT c FROM Condominios c WHERE c.piscina = :piscina"),
-    @NamedQuery(name = "Condominios.findByChurrasqueira", query = "SELECT c FROM Condominios c WHERE c.churrasqueira = :churrasqueira"),
-    @NamedQuery(name = "Condominios.findByAcademia", query = "SELECT c FROM Condominios c WHERE c.academia = :academia"),
-    @NamedQuery(name = "Condominios.findByPlay", query = "SELECT c FROM Condominios c WHERE c.play = :play"),
-    @NamedQuery(name = "Condominios.findByParque", query = "SELECT c FROM Condominios c WHERE c.parque = :parque"),
-    @NamedQuery(name = "Condominios.findByQuadra", query = "SELECT c FROM Condominios c WHERE c.quadra = :quadra"),
-    @NamedQuery(name = "Condominios.findByFestas", query = "SELECT c FROM Condominios c WHERE c.festas = :festas"),
-    @NamedQuery(name = "Condominios.findByJogos", query = "SELECT c FROM Condominios c WHERE c.jogos = :jogos"),
-    @NamedQuery(name = "Condominios.findByGourmet", query = "SELECT c FROM Condominios c WHERE c.gourmet = :gourmet"),
-    @NamedQuery(name = "Condominios.findByZen", query = "SELECT c FROM Condominios c WHERE c.zen = :zen"),
-    @NamedQuery(name = "Condominios.findByBriquedoteca", query = "SELECT c FROM Condominios c WHERE c.briquedoteca = :briquedoteca"),
-    @NamedQuery(name = "Condominios.findByCinema", query = "SELECT c FROM Condominios c WHERE c.cinema = :cinema"),
-    @NamedQuery(name = "Condominios.findBySauna", query = "SELECT c FROM Condominios c WHERE c.sauna = :sauna"),
-    @NamedQuery(name = "Condominios.findByPorteiro", query = "SELECT c FROM Condominios c WHERE c.porteiro = :porteiro"),
-    @NamedQuery(name = "Condominios.findByInterfone", query = "SELECT c FROM Condominios c WHERE c.interfone = :interfone"),
-    @NamedQuery(name = "Condominios.findByGas", query = "SELECT c FROM Condominios c WHERE c.gas = :gas"),
-    @NamedQuery(name = "Condominios.findByElevador", query = "SELECT c FROM Condominios c WHERE c.elevador = :elevador"),
-    @NamedQuery(name = "Condominios.findByNome", query = "SELECT c FROM Condominios c WHERE c.nome = :nome")})
-public class Condominios implements Serializable {
+    @NamedQuery(name = "AreaExterna.findAll", query = "SELECT a FROM AreaExterna a"),
+    @NamedQuery(name = "AreaExterna.findById", query = "SELECT a FROM AreaExterna a WHERE a.id = :id"),
+    @NamedQuery(name = "AreaExterna.findByPiscina", query = "SELECT a FROM AreaExterna a WHERE a.piscina = :piscina"),
+    @NamedQuery(name = "AreaExterna.findByChurrasqueira", query = "SELECT a FROM AreaExterna a WHERE a.churrasqueira = :churrasqueira"),
+    @NamedQuery(name = "AreaExterna.findByAcademia", query = "SELECT a FROM AreaExterna a WHERE a.academia = :academia"),
+    @NamedQuery(name = "AreaExterna.findByPlay", query = "SELECT a FROM AreaExterna a WHERE a.play = :play"),
+    @NamedQuery(name = "AreaExterna.findByParque", query = "SELECT a FROM AreaExterna a WHERE a.parque = :parque"),
+    @NamedQuery(name = "AreaExterna.findByQuadra", query = "SELECT a FROM AreaExterna a WHERE a.quadra = :quadra"),
+    @NamedQuery(name = "AreaExterna.findByFestas", query = "SELECT a FROM AreaExterna a WHERE a.festas = :festas"),
+    @NamedQuery(name = "AreaExterna.findByJogos", query = "SELECT a FROM AreaExterna a WHERE a.jogos = :jogos"),
+    @NamedQuery(name = "AreaExterna.findByGourmet", query = "SELECT a FROM AreaExterna a WHERE a.gourmet = :gourmet"),
+    @NamedQuery(name = "AreaExterna.findByZen", query = "SELECT a FROM AreaExterna a WHERE a.zen = :zen"),
+    @NamedQuery(name = "AreaExterna.findByBriquedoteca", query = "SELECT a FROM AreaExterna a WHERE a.briquedoteca = :briquedoteca"),
+    @NamedQuery(name = "AreaExterna.findByCinema", query = "SELECT a FROM AreaExterna a WHERE a.cinema = :cinema"),
+    @NamedQuery(name = "AreaExterna.findBySauna", query = "SELECT a FROM AreaExterna a WHERE a.sauna = :sauna"),
+    @NamedQuery(name = "AreaExterna.findByPorteiro", query = "SELECT a FROM AreaExterna a WHERE a.porteiro = :porteiro"),
+    @NamedQuery(name = "AreaExterna.findByInterfone", query = "SELECT a FROM AreaExterna a WHERE a.interfone = :interfone"),
+    @NamedQuery(name = "AreaExterna.findByGas", query = "SELECT a FROM AreaExterna a WHERE a.gas = :gas"),
+    @NamedQuery(name = "AreaExterna.findByElevador", query = "SELECT a FROM AreaExterna a WHERE a.elevador = :elevador"),
+    @NamedQuery(name = "AreaExterna.findByTamanho", query = "SELECT a FROM AreaExterna a WHERE a.tamanho = :tamanho")})
+public class AreaExterna implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idcondominios")
-    private Integer idcondominios;
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "piscina")
     private Boolean piscina;
     @Column(name = "churrasqueira")
@@ -87,22 +91,26 @@ public class Condominios implements Serializable {
     private Boolean gas;
     @Column(name = "elevador")
     private Boolean elevador;
-    @Column(name = "nome")
-    private String nome;
+    @Column(name = "tamanho")
+    private Integer tamanho;
+    @OneToMany(mappedBy = "idareaexterna")
+    private Collection<Unidade> unidadeCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idareaexterna")
+    private Collection<Condominio> condominioCollection;
 
-    public Condominios() {
+    public AreaExterna() {
     }
 
-    public Condominios(Integer idcondominios) {
-        this.idcondominios = idcondominios;
+    public AreaExterna(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdcondominios() {
-        return idcondominios;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdcondominios(Integer idcondominios) {
-        this.idcondominios = idcondominios;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Boolean getPiscina() {
@@ -241,29 +249,47 @@ public class Condominios implements Serializable {
         this.elevador = elevador;
     }
 
-    public String getNome() {
-        return nome;
+    public Integer getTamanho() {
+        return tamanho;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setTamanho(Integer tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    @XmlTransient
+    public Collection<Unidade> getUnidadeCollection() {
+        return unidadeCollection;
+    }
+
+    public void setUnidadeCollection(Collection<Unidade> unidadeCollection) {
+        this.unidadeCollection = unidadeCollection;
+    }
+
+    @XmlTransient
+    public Collection<Condominio> getCondominioCollection() {
+        return condominioCollection;
+    }
+
+    public void setCondominioCollection(Collection<Condominio> condominioCollection) {
+        this.condominioCollection = condominioCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idcondominios != null ? idcondominios.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Condominios)) {
+        if (!(object instanceof AreaExterna)) {
             return false;
         }
-        Condominios other = (Condominios) object;
-        if ((this.idcondominios == null && other.idcondominios != null) || (this.idcondominios != null && !this.idcondominios.equals(other.idcondominios))) {
+        AreaExterna other = (AreaExterna) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -271,7 +297,7 @@ public class Condominios implements Serializable {
 
     @Override
     public String toString() {
-        return "s30p.view.Condominios[ idcondominios=" + idcondominios + " ]";
+        return "model.beans.AreaExterna[ id=" + id + " ]";
     }
     
 }

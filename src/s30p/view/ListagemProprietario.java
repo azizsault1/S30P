@@ -27,11 +27,8 @@ public class ListagemProprietario extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         S30PPUEntityManager0 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("S30PPU").createEntityManager();
-        proprietariosQuery = java.beans.Beans.isDesignTime() ? null : S30PPUEntityManager0.createQuery("SELECT p FROM Proprietarios p");
-        proprietariosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : proprietariosQuery.getResultList();
         jScrollPane1 = new javax.swing.JScrollPane();
         proprietariosTable = new javax.swing.JTable();
 
@@ -39,30 +36,6 @@ public class ListagemProprietario extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(735, 435));
 
         proprietariosTable.getTableHeader().setReorderingAllowed(false);
-
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietariosList, proprietariosTable);
-        org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${nome}"));
-        columnBinding.setColumnName("Nome");
-        columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone1}"));
-        columnBinding.setColumnName("Telefone1");
-        columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone2}"));
-        columnBinding.setColumnName("Telefone2");
-        columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
-        columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${telefone3}"));
-        columnBinding.setColumnName("Telefone3");
-        columnBinding.setColumnClass(String.class);
-        columnBinding.setEditable(false);
-        bindingGroup.addBinding(jTableBinding);
-        jTableBinding.bind();org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietariosList, org.jdesktop.beansbinding.ObjectProperty.create(), proprietariosTable, org.jdesktop.beansbinding.BeanProperty.create("selectedElement"));
-        bindingGroup.addBinding(binding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietariosList, org.jdesktop.beansbinding.ObjectProperty.create(), proprietariosTable, org.jdesktop.beansbinding.BeanProperty.create("selectedElements"));
-        bindingGroup.addBinding(binding);
-
         proprietariosTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 proprietariosTableMouseClicked(evt);
@@ -88,16 +61,14 @@ public class ListagemProprietario extends javax.swing.JInternalFrame {
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void proprietariosTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proprietariosTableMouseClicked
       int selectedRow = proprietariosTable.getSelectedRow();
-      model.Proprietarios prop = proprietariosList.get(selectedRow);
-        System.out.println("id:"+prop.getIdproprietarios());
-        System.out.println("nome: "+prop.getNome());
+//      model.beans.Conta prop = proprietariosList.get(selectedRow);
+//        System.out.println("id:"+prop.getIdproprietarios());
+//        System.out.println("nome: "+prop.getNome());
         
     }//GEN-LAST:event_proprietariosTableMouseClicked
 
@@ -105,9 +76,6 @@ public class ListagemProprietario extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.persistence.EntityManager S30PPUEntityManager0;
     private javax.swing.JScrollPane jScrollPane1;
-    private java.util.List<model.Proprietarios> proprietariosList;
-    private javax.persistence.Query proprietariosQuery;
     private javax.swing.JTable proprietariosTable;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 }

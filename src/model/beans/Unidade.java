@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package model;
+package model.beans;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -29,31 +29,31 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = "imoveis")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Imoveis.findAll", query = "SELECT i FROM Imoveis i"),
-    @NamedQuery(name = "Imoveis.findByIdimoveis", query = "SELECT i FROM Imoveis i WHERE i.idimoveis = :idimoveis"),
-    @NamedQuery(name = "Imoveis.findByTipo", query = "SELECT i FROM Imoveis i WHERE i.tipo = :tipo"),
-    @NamedQuery(name = "Imoveis.findByQuartos", query = "SELECT i FROM Imoveis i WHERE i.quartos = :quartos"),
-    @NamedQuery(name = "Imoveis.findByHome", query = "SELECT i FROM Imoveis i WHERE i.home = :home"),
-    @NamedQuery(name = "Imoveis.findByVaranda", query = "SELECT i FROM Imoveis i WHERE i.varanda = :varanda"),
-    @NamedQuery(name = "Imoveis.findByVarandaGourmet", query = "SELECT i FROM Imoveis i WHERE i.varandaGourmet = :varandaGourmet"),
-    @NamedQuery(name = "Imoveis.findBySalas", query = "SELECT i FROM Imoveis i WHERE i.salas = :salas"),
-    @NamedQuery(name = "Imoveis.findBySuites", query = "SELECT i FROM Imoveis i WHERE i.suites = :suites"),
-    @NamedQuery(name = "Imoveis.findByCloset", query = "SELECT i FROM Imoveis i WHERE i.closet = :closet"),
-    @NamedQuery(name = "Imoveis.findByBanheiro", query = "SELECT i FROM Imoveis i WHERE i.banheiro = :banheiro"),
-    @NamedQuery(name = "Imoveis.findByLavabo", query = "SELECT i FROM Imoveis i WHERE i.lavabo = :lavabo"),
-    @NamedQuery(name = "Imoveis.findByCozinha", query = "SELECT i FROM Imoveis i WHERE i.cozinha = :cozinha"),
-    @NamedQuery(name = "Imoveis.findByDespensa", query = "SELECT i FROM Imoveis i WHERE i.despensa = :despensa"),
-    @NamedQuery(name = "Imoveis.findByAreaServico", query = "SELECT i FROM Imoveis i WHERE i.areaServico = :areaServico"),
-    @NamedQuery(name = "Imoveis.findByDependencia", query = "SELECT i FROM Imoveis i WHERE i.dependencia = :dependencia"),
-    @NamedQuery(name = "Imoveis.findByEscritorio", query = "SELECT i FROM Imoveis i WHERE i.escritorio = :escritorio"),
-    @NamedQuery(name = "Imoveis.findByValor", query = "SELECT i FROM Imoveis i WHERE i.valor = :valor")})
-public class Imoveis implements Serializable {
+    @NamedQuery(name = "Unidade.findAll", query = "SELECT u FROM Unidade u"),
+    @NamedQuery(name = "Unidade.findById", query = "SELECT u FROM Unidade u WHERE u.id = :id"),
+    @NamedQuery(name = "Unidade.findByTipo", query = "SELECT u FROM Unidade u WHERE u.tipo = :tipo"),
+    @NamedQuery(name = "Unidade.findByQuartos", query = "SELECT u FROM Unidade u WHERE u.quartos = :quartos"),
+    @NamedQuery(name = "Unidade.findByHome", query = "SELECT u FROM Unidade u WHERE u.home = :home"),
+    @NamedQuery(name = "Unidade.findByVaranda", query = "SELECT u FROM Unidade u WHERE u.varanda = :varanda"),
+    @NamedQuery(name = "Unidade.findByVarandaGourmet", query = "SELECT u FROM Unidade u WHERE u.varandaGourmet = :varandaGourmet"),
+    @NamedQuery(name = "Unidade.findBySalas", query = "SELECT u FROM Unidade u WHERE u.salas = :salas"),
+    @NamedQuery(name = "Unidade.findBySuites", query = "SELECT u FROM Unidade u WHERE u.suites = :suites"),
+    @NamedQuery(name = "Unidade.findByCloset", query = "SELECT u FROM Unidade u WHERE u.closet = :closet"),
+    @NamedQuery(name = "Unidade.findByBanheiro", query = "SELECT u FROM Unidade u WHERE u.banheiro = :banheiro"),
+    @NamedQuery(name = "Unidade.findByLavabo", query = "SELECT u FROM Unidade u WHERE u.lavabo = :lavabo"),
+    @NamedQuery(name = "Unidade.findByCozinha", query = "SELECT u FROM Unidade u WHERE u.cozinha = :cozinha"),
+    @NamedQuery(name = "Unidade.findByDespensa", query = "SELECT u FROM Unidade u WHERE u.despensa = :despensa"),
+    @NamedQuery(name = "Unidade.findByAreaServico", query = "SELECT u FROM Unidade u WHERE u.areaServico = :areaServico"),
+    @NamedQuery(name = "Unidade.findByDependencia", query = "SELECT u FROM Unidade u WHERE u.dependencia = :dependencia"),
+    @NamedQuery(name = "Unidade.findByEscritorio", query = "SELECT u FROM Unidade u WHERE u.escritorio = :escritorio"),
+    @NamedQuery(name = "Unidade.findByValor", query = "SELECT u FROM Unidade u WHERE u.valor = :valor")})
+public class Unidade implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "idimoveis")
-    private Integer idimoveis;
+    @Column(name = "id")
+    private Integer id;
     @Column(name = "tipo")
     private Short tipo;
     @Column(name = "quartos")
@@ -87,23 +87,35 @@ public class Imoveis implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "valor")
     private BigDecimal valor;
-    @JoinColumn(name = "enderecos_idenderecos", referencedColumnName = "idenderecos")
+    @JoinColumn(name = "idareaexterna", referencedColumnName = "id")
+    @ManyToOne
+    private AreaExterna idareaexterna;
+    @JoinColumn(name = "idenderecos", referencedColumnName = "id")
+    @ManyToOne
+    private Endereco idenderecos;
+    @JoinColumn(name = "idvendas", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Enderecos enderecosIdenderecos;
+    private Venda idvendas;
+    @JoinColumn(name = "idcondominios", referencedColumnName = "id")
+    @ManyToOne
+    private Condominio idcondominios;
+    @JoinColumn(name = "idcontas", referencedColumnName = "id")
+    @ManyToOne(optional = false)
+    private Conta idcontas;
 
-    public Imoveis() {
+    public Unidade() {
     }
 
-    public Imoveis(Integer idimoveis) {
-        this.idimoveis = idimoveis;
+    public Unidade(Integer id) {
+        this.id = id;
     }
 
-    public Integer getIdimoveis() {
-        return idimoveis;
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdimoveis(Integer idimoveis) {
-        this.idimoveis = idimoveis;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public Short getTipo() {
@@ -234,29 +246,61 @@ public class Imoveis implements Serializable {
         this.valor = valor;
     }
 
-    public Enderecos getEnderecosIdenderecos() {
-        return enderecosIdenderecos;
+    public AreaExterna getIdareaexterna() {
+        return idareaexterna;
     }
 
-    public void setEnderecosIdenderecos(Enderecos enderecosIdenderecos) {
-        this.enderecosIdenderecos = enderecosIdenderecos;
+    public void setIdareaexterna(AreaExterna idareaexterna) {
+        this.idareaexterna = idareaexterna;
+    }
+
+    public Endereco getIdenderecos() {
+        return idenderecos;
+    }
+
+    public void setIdenderecos(Endereco idenderecos) {
+        this.idenderecos = idenderecos;
+    }
+
+    public Venda getIdvendas() {
+        return idvendas;
+    }
+
+    public void setIdvendas(Venda idvendas) {
+        this.idvendas = idvendas;
+    }
+
+    public Condominio getIdcondominios() {
+        return idcondominios;
+    }
+
+    public void setIdcondominios(Condominio idcondominios) {
+        this.idcondominios = idcondominios;
+    }
+
+    public Conta getIdcontas() {
+        return idcontas;
+    }
+
+    public void setIdcontas(Conta idcontas) {
+        this.idcontas = idcontas;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idimoveis != null ? idimoveis.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Imoveis)) {
+        if (!(object instanceof Unidade)) {
             return false;
         }
-        Imoveis other = (Imoveis) object;
-        if ((this.idimoveis == null && other.idimoveis != null) || (this.idimoveis != null && !this.idimoveis.equals(other.idimoveis))) {
+        Unidade other = (Unidade) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -264,7 +308,7 @@ public class Imoveis implements Serializable {
 
     @Override
     public String toString() {
-        return "s30p.view.Imoveis[ idimoveis=" + idimoveis + " ]";
+        return "model.beans.Unidade[ id=" + id + " ]";
     }
     
 }
