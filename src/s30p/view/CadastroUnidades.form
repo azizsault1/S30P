@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.persistence.EntityManager" name="entityManager1">
+      <Properties>
+        <Property name="persistenceUnit" type="java.lang.String" value="pu"/>
+      </Properties>
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="SU Software - Cadastro de Unidades"/>
@@ -36,8 +43,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jTabbedPane1" min="-2" pref="370" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,7 +78,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="152" max="32767" attributes="0"/>
+                      <EmptySpace pref="208" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -101,24 +108,9 @@
                                   <Component id="txtProprierario" min="-2" pref="389" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblCondominio" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblBloco" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblApto" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblCasa" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblCondominio" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="txtCondominio" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="txtBloco" min="-2" pref="85" max="-2" attributes="0"/>
-                                              <Component id="txtApto" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                              <Component id="txtCasa" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="txtCondominio" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace pref="88" max="32767" attributes="0"/>
@@ -137,22 +129,7 @@
                               <Component id="lblCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblBloco" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtBloco" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblApto" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtApto" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCasa" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCasa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="105" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -171,30 +148,6 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCondominio">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblBloco">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Bloco:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtBloco">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblApto">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Apto:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtApto">
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblCasa">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Casa:"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="txtCasa">
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCasaActionPerformed"/>
-                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -219,180 +172,253 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblSalas" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblHome" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="txtHome" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="txtSalas" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblEscritorio" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtEscritorio" min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblVaranda" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblEscritorio" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblQuartos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSuite" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCloset" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblLavabo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCozinha" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDespensa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblAreaserv" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblDependencia" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblBanheiro" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtQuartos" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="txtVaranda" min="-2" pref="39" max="-2" attributes="0"/>
-                                  <Component id="txtSuite" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
-                                  <Component id="txtCloset" min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="txtLavabo" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                                  <Component id="txtCozinha" alignment="0" min="-2" pref="41" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtDependeicna" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                              <Component id="txtAreaserv" min="-2" pref="43" max="-2" attributes="0"/>
+                                              <Component id="txtEscritorio" min="-2" pref="39" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="txtDespensa" min="-2" pref="41" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                                      <Component id="txtBanheiro" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="txtCloset" alignment="0" pref="41" max="32767" attributes="0"/>
+                                                      <Component id="txtCozinha" alignment="0" pref="41" max="32767" attributes="0"/>
+                                                      <Component id="txtLavabo" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                      <Component id="txtHome" min="-2" pref="37" max="-2" attributes="0"/>
+                                                      <Component id="txtSalas" min="-2" pref="37" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                                      <Component id="txtQuartos" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="txtSuite" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                      <Component id="txtVaranda" alignment="1" min="-2" pref="39" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                          <Component id="lblSuite" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCloset" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblLavabo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblCozinha" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblDespensa" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtDespensa" min="-2" pref="38" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblAreaserv" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtAreaserv" min="-2" pref="43" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblDependencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtDependeicna" min="-2" pref="41" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="lblVaranda" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="checkGourmet" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkRebgesso" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkLcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkZcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkCcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkScarmario" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkQcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkDcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="checkAscarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkCcarmario" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkBanheiro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkGourmet" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkRebgesso" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkQcarmario" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBox2" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="checkGcoberta" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkGpresa" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkGlivre" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkPteletronico" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkAqsolar" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkJardim" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkQuintal" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkGdescoberta" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="117" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblGaraglivre" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="txtGaraglivre" min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Component id="lblGaragpresa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="txtGaragpresa" min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                          <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkAqsolar" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkJardim" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkQuintal" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkPteletronico" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jTextField1" min="-2" pref="38" max="-2" attributes="0"/>
+                                                  <Component id="jTextField2" min="-2" pref="35" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
                               </Group>
+                              <EmptySpace min="39" pref="91" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="checkDpcarmario" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="checkScarmario" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jCheckBox3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="79" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblSalas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtSalas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkRebgesso" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkJardim" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtHome" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkQuintal" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblVaranda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtVaranda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkPteletronico" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkGourmet" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="60" pref="60" max="-2" attributes="0"/>
+                      <Component id="lblVaranda" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblAreaserv" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtEscritorio" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkDcarmario" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="checkAqsolar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="checkGlivre" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="checkGpresa" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="checkGcoberta" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="checkGdescoberta" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkScarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblSuite" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtSuite" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkQcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="checkCcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCloset" alignment="3" min="-2" pref="26" max="-2" attributes="0"/>
-                                  <Component id="txtCloset" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblLavabo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtLavabo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkLcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblCozinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtCozinha" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkZcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDespensa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDespensa" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkDcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblDependencia" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAreaserv" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="checkAscarmario" alignment="1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblEscritorio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtDependeicna" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="131" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txtGaraglivre" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblAreaserv" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="txtAreaserv" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="checkAscarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="checkRebgesso" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="lblSalas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblGaraglivre" alignment="3" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtSalas" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="3" attributes="0">
+                                                  <Component id="txtHome" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                                  <Component id="lblHome" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtVaranda" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkGourmet" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblQuartos" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Component id="txtQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jCheckBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="lblGaragpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtGaragpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblDependencia" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtDependeicna" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="checkDpcarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSuite" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSuite" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="checkQcarmario" alignment="1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblBanheiro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtBanheiro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                              <Component id="checkScarmario" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jCheckBox3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCloset" alignment="1" min="-2" pref="22" max="-2" attributes="0"/>
+                                          <Component id="txtCloset" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkBanheiro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblLavabo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtLavabo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkCcarmario" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblCozinha" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtCozinha" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkLcarmario" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblDespensa" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtDespensa" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="checkZcarmario" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="checkJardim" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkQuintal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkPteletronico" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="checkAqsolar" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                      <Component id="checkCirctv" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblEscritorio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEscritorio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -469,7 +495,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblCozinha">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cozinha:"/>
+                <Property name="text" type="java.lang.String" value="Copa/Cozinha:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtCozinha">
@@ -483,6 +509,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtDespensa">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDespensaActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblAreaserv">
               <Properties>
@@ -503,7 +532,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblEscritorio">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Escrit&#xf3;prio:"/>
+                <Property name="text" type="java.lang.String" value="Escrit&#xf3;rio:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtEscritorio">
@@ -580,35 +609,6 @@
                 <Property name="text" type="java.lang.String" value="Circuito TV"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="checkGlivre">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Garagem livre"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="checkGpresa">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Garagem presa"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGpresaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="checkGcoberta">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Garagem coberta"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGcobertaActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="checkGdescoberta">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Garagem descoberta"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkGdescobertaActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JCheckBox" name="checkJardim">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Jardim"/>
@@ -619,10 +619,61 @@
                 <Property name="text" type="java.lang.String" value="Quintal"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JCheckBox" name="checkDpcarmario">
+            <Component class="javax.swing.JLabel" name="lblBanheiro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Banheiro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBanheiro">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="checkBanheiro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblGaraglivre">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem livre:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtGaraglivre">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblGaragpresa">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem presa:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtGaragpresa">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem coberta:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField1">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Garagem descoberta:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextField2">
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/&#xe1;rmario"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="jCheckBox3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C/blindex"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox3ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -638,9 +689,55 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblLogradouro" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="32767" attributes="0"/>
+                                              <Component id="txtLogradouro" min="-2" pref="357" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="lblPtReferencia1" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="txtPtReferencia1" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblCidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblCep" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblBairro" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="cbCidades" alignment="0" min="-2" pref="139" max="-2" attributes="0"/>
+                                                  <Component id="txtCep" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                                                  <Component id="cbEstados" alignment="0" min="-2" pref="138" max="-2" attributes="0"/>
+                                                  <Component id="txtBairro" min="-2" pref="183" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblNum" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtNum" min="-2" pref="50" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                      </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -648,9 +745,41 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="215" max="32767" attributes="0"/>
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbEstados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cbCidades" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtCep" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPtReferencia1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtPtReferencia1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="97" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -664,15 +793,12 @@
                   </Border>
                 </Property>
               </Properties>
-              <AccessibilityProperties>
-                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="Complemento"/>
-              </AccessibilityProperties>
 
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="lblBloco1" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lblApto1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -684,14 +810,13 @@
                               <Component id="txtApto1" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
                               <Component id="txtCasa1" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="381" max="32767" attributes="0"/>
+                          <EmptySpace pref="382" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblBloco1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtBloco1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -706,6 +831,7 @@
                               <Component id="lblCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtCasa1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="0" pref="20" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -737,6 +863,61 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JLabel" name="lblLogradouro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Logradouro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtLogradouro">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNum">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Num:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtNum">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbEstados">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbEstadosActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCidade">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Municip&#xed;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cbCidades">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblBairro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Bairro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBairro">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCep">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C.e.p.:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtCep">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPtReferencia1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Pt Refer&#xea;ncia:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtPtReferencia1">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

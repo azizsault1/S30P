@@ -6,6 +6,10 @@
 
 package s30p.view;
 
+import java.util.List;
+import javax.persistence.Query;
+import model.Estados;
+
 /**
  *
  * @author Aziz
@@ -28,6 +32,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        entityManager1 = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("S30PPU").createEntityManager();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         paneProprietario = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -35,12 +40,6 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         txtProprierario = new javax.swing.JTextField();
         lblCondominio = new javax.swing.JLabel();
         txtCondominio = new javax.swing.JTextField();
-        lblBloco = new javax.swing.JLabel();
-        txtBloco = new javax.swing.JTextField();
-        lblApto = new javax.swing.JLabel();
-        txtApto = new javax.swing.JTextField();
-        lblCasa = new javax.swing.JLabel();
-        txtCasa = new javax.swing.JTextField();
         paneCaracteristica = new javax.swing.JPanel();
         lblSalas = new javax.swing.JLabel();
         txtSalas = new javax.swing.JTextField();
@@ -78,13 +77,21 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         checkPteletronico = new javax.swing.JCheckBox();
         checkAqsolar = new javax.swing.JCheckBox();
         checkCirctv = new javax.swing.JCheckBox();
-        checkGlivre = new javax.swing.JCheckBox();
-        checkGpresa = new javax.swing.JCheckBox();
-        checkGcoberta = new javax.swing.JCheckBox();
-        checkGdescoberta = new javax.swing.JCheckBox();
         checkJardim = new javax.swing.JCheckBox();
         checkQuintal = new javax.swing.JCheckBox();
-        checkDpcarmario = new javax.swing.JCheckBox();
+        lblBanheiro = new javax.swing.JLabel();
+        txtBanheiro = new javax.swing.JTextField();
+        checkBanheiro = new javax.swing.JCheckBox();
+        lblGaraglivre = new javax.swing.JLabel();
+        txtGaraglivre = new javax.swing.JTextField();
+        lblGaragpresa = new javax.swing.JLabel();
+        txtGaragpresa = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         lblBloco1 = new javax.swing.JLabel();
@@ -93,6 +100,20 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         txtApto1 = new javax.swing.JTextField();
         lblCasa1 = new javax.swing.JLabel();
         txtCasa1 = new javax.swing.JTextField();
+        lblLogradouro = new javax.swing.JLabel();
+        txtLogradouro = new javax.swing.JTextField();
+        lblNum = new javax.swing.JLabel();
+        txtNum = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        cbEstados = new javax.swing.JComboBox();
+        lblCidade = new javax.swing.JLabel();
+        cbCidades = new javax.swing.JComboBox();
+        lblBairro = new javax.swing.JLabel();
+        txtBairro = new javax.swing.JTextField();
+        lblCep = new javax.swing.JLabel();
+        txtCep = new javax.swing.JTextField();
+        lblPtReferencia1 = new javax.swing.JLabel();
+        txtPtReferencia1 = new javax.swing.JTextField();
 
         setClosable(true);
         setTitle("SU Software - Cadastro de Unidades");
@@ -103,18 +124,6 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         lblProprierario.setText("Proprietário:");
 
         lblCondominio.setText("Condomínio:");
-
-        lblBloco.setText("Bloco:");
-
-        lblApto.setText("Apto:");
-
-        lblCasa.setText("Casa:");
-
-        txtCasa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCasaActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -128,20 +137,9 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtProprierario, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCondominio)
-                            .addComponent(lblBloco)
-                            .addComponent(lblApto)
-                            .addComponent(lblCasa))
+                        .addComponent(lblCondominio)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCondominio)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtBloco, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtApto, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(txtCondominio)))
                 .addContainerGap(88, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,19 +152,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCondominio)
                     .addComponent(txtCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblBloco)
-                    .addComponent(txtBloco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblApto)
-                    .addComponent(txtApto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCasa)
-                    .addComponent(txtCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGap(0, 105, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout paneProprietarioLayout = new javax.swing.GroupLayout(paneProprietario);
@@ -183,7 +169,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
             .addGroup(paneProprietarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(208, Short.MAX_VALUE))
         );
 
         jPanel1.getAccessibleContext().setAccessibleName("Dados do imovel");
@@ -240,7 +226,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
             }
         });
 
-        lblCozinha.setText("Cozinha:");
+        lblCozinha.setText("Copa/Cozinha:");
 
         txtCozinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,6 +235,12 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         });
 
         lblDespensa.setText("Despensa:");
+
+        txtDespensa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDespensaActionPerformed(evt);
+            }
+        });
 
         lblAreaserv.setText("Área serviço:");
 
@@ -260,7 +252,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
             }
         });
 
-        lblEscritorio.setText("Escritóprio:");
+        lblEscritorio.setText("Escritório:");
 
         checkRebgesso.setText("Rebaixada gesso");
 
@@ -306,34 +298,35 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
 
         checkCirctv.setText("Circuito TV");
 
-        checkGlivre.setText("Garagem livre");
-
-        checkGpresa.setText("Garagem presa");
-        checkGpresa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkGpresaActionPerformed(evt);
-            }
-        });
-
-        checkGcoberta.setText("Garagem coberta");
-        checkGcoberta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkGcobertaActionPerformed(evt);
-            }
-        });
-
-        checkGdescoberta.setText("Garagem descoberta");
-        checkGdescoberta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkGdescobertaActionPerformed(evt);
-            }
-        });
-
         checkJardim.setText("Jardim");
 
         checkQuintal.setText("Quintal");
 
-        checkDpcarmario.setText("C/ármario");
+        lblBanheiro.setText("Banheiro:");
+
+        checkBanheiro.setText("C/ármario");
+
+        lblGaraglivre.setText("Garagem livre:");
+
+        lblGaragpresa.setText("Garagem presa:");
+
+        jLabel2.setText("Garagem coberta:");
+
+        jLabel3.setText("Garagem descoberta:");
+
+        jCheckBox2.setText("C/ármario");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
+
+        jCheckBox3.setText("C/blindex");
+        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout paneCaracteristicaLayout = new javax.swing.GroupLayout(paneCaracteristica);
         paneCaracteristica.setLayout(paneCaracteristicaLayout);
@@ -345,149 +338,197 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
                     .addGroup(paneCaracteristicaLayout.createSequentialGroup()
                         .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSalas)
-                            .addComponent(lblHome))
-                        .addGap(38, 38, 38)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addComponent(lblEscritorio)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                            .addComponent(lblHome)
+                            .addComponent(lblEscritorio)
+                            .addComponent(lblQuartos)
+                            .addComponent(lblSuite)
+                            .addComponent(lblCloset)
+                            .addComponent(lblLavabo)
+                            .addComponent(lblCozinha)
+                            .addComponent(lblDespensa)
+                            .addComponent(lblAreaserv)
+                            .addComponent(lblDependencia)
+                            .addComponent(lblBanheiro))
                         .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblVaranda)
-                            .addComponent(lblQuartos))
-                        .addGap(25, 25, 25)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtVaranda, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSuite, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCloset, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtLavabo, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCozinha, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblSuite)
-                    .addComponent(lblCloset)
-                    .addComponent(lblLavabo)
-                    .addComponent(lblCozinha)
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addComponent(lblDespensa)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtDespensa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addComponent(lblAreaserv)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtAreaserv, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addComponent(lblDependencia)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDependeicna, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(101, 101, 101)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCaracteristicaLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDependeicna, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtAreaserv, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtDespensa, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, paneCaracteristicaLayout.createSequentialGroup()
+                                            .addGap(21, 21, 21)
+                                            .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(txtBanheiro, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(txtCloset, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                                .addComponent(txtCozinha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                                .addComponent(txtLavabo, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtSalas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(txtQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtSuite, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtVaranda, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(1, 1, 1))))
+                    .addComponent(lblVaranda))
+                .addGap(18, 18, 18)
                 .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(paneCaracteristicaLayout.createSequentialGroup()
                         .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkGourmet)
-                            .addComponent(checkRebgesso)
                             .addComponent(checkLcarmario)
                             .addComponent(checkZcarmario)
-                            .addComponent(checkCcarmario)
-                            .addComponent(checkScarmario)
-                            .addComponent(checkQcarmario)
                             .addComponent(checkDcarmario)
-                            .addComponent(checkAscarmario))
-                        .addGap(96, 96, 96)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(checkGcoberta)
-                            .addComponent(checkGpresa)
-                            .addComponent(checkGlivre)
-                            .addComponent(checkCirctv)
-                            .addComponent(checkPteletronico)
-                            .addComponent(checkAqsolar)
-                            .addComponent(checkJardim)
-                            .addComponent(checkQuintal)
-                            .addComponent(checkGdescoberta)))
-                    .addComponent(checkDpcarmario))
-                .addContainerGap(79, Short.MAX_VALUE))
+                            .addComponent(checkAscarmario)
+                            .addComponent(checkCcarmario)
+                            .addComponent(checkBanheiro)
+                            .addComponent(checkGourmet)
+                            .addComponent(checkRebgesso)
+                            .addComponent(checkQcarmario)
+                            .addComponent(jCheckBox2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addComponent(lblGaraglivre)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtGaraglivre, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblGaragpresa)
+                            .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtGaragpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkCirctv)
+                                    .addComponent(checkAqsolar)
+                                    .addComponent(checkJardim)
+                                    .addComponent(checkQuintal)
+                                    .addComponent(checkPteletronico)
+                                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel2))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                        .addGap(39, 91, Short.MAX_VALUE))
+                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                        .addComponent(checkScarmario)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckBox3)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         paneCaracteristicaLayout.setVerticalGroup(
             paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSalas)
-                    .addComponent(txtSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkRebgesso)
-                    .addComponent(checkJardim))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHome)
-                    .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkQuintal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblVaranda)
-                    .addComponent(txtVaranda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkPteletronico)
-                    .addComponent(checkGourmet))
+                .addGap(60, 60, 60)
+                .addComponent(lblVaranda)
+                .addGap(190, 190, 190)
+                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAreaserv, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtEscritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkDcarmario, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addComponent(checkAqsolar)
-                        .addGap(5, 5, 5)
-                        .addComponent(checkCirctv)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkGlivre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkGpresa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkGcoberta)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(checkGdescoberta))
-                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblQuartos)
-                            .addComponent(txtQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkScarmario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSuite)
-                            .addComponent(txtSuite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkQcarmario))
-                        .addGap(1, 1, 1)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkCcarmario)
-                            .addComponent(lblCloset, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCloset, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblLavabo)
-                            .addComponent(txtLavabo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkLcarmario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblCozinha)
-                            .addComponent(txtCozinha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkZcarmario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDespensa)
-                            .addComponent(txtDespensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkDcarmario))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAreaserv)
-                            .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtAreaserv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(checkAscarmario)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblDependencia)
-                            .addComponent(txtDependeicna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(checkDpcarmario))))
-                .addGap(83, 83, 83)
+                    .addComponent(lblDependencia, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtAreaserv, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(checkAscarmario, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEscritorio)
-                    .addComponent(txtEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDependeicna, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 131, Short.MAX_VALUE))
+            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtGaraglivre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(checkRebgesso)
+                                    .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(lblSalas)
+                                            .addComponent(lblGaraglivre)
+                                            .addComponent(txtSalas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(txtHome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblHome))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtVaranda, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkGourmet, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jCheckBox2)))
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblGaragpresa)
+                                    .addComponent(txtGaragpresa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSuite, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtSuite, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(checkQcarmario, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblBanheiro, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtBanheiro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(checkScarmario)
+                                        .addComponent(jCheckBox3)))
+                                .addGap(6, 6, 6)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCloset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCloset, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkBanheiro, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblLavabo, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtLavabo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkCcarmario, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCozinha, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtCozinha, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkLcarmario, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(paneCaracteristicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDespensa, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtDespensa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(checkZcarmario, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addGroup(paneCaracteristicaLayout.createSequentialGroup()
+                                .addComponent(checkJardim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkQuintal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkPteletronico)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(checkAqsolar)
+                                .addGap(5, 5, 5)
+                                .addComponent(checkCirctv)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -512,7 +553,7 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBloco1)
                     .addComponent(lblApto1)
@@ -522,12 +563,11 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
                     .addComponent(txtBloco1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtApto1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(381, Short.MAX_VALUE))
+                .addContainerGap(382, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblBloco1)
                     .addComponent(txtBloco1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -538,27 +578,112 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCasa1)
-                    .addComponent(txtCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(txtCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 20, Short.MAX_VALUE))
         );
+
+        lblLogradouro.setText("Logradouro:");
+
+        lblNum.setText("Num:");
+
+        txtNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNumActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Estado:");
+
+        cbEstados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbEstadosActionPerformed(evt);
+            }
+        });
+
+        lblCidade.setText("Municipío:");
+
+        lblBairro.setText("Bairro:");
+
+        lblCep.setText("C.e.p.:");
+
+        lblPtReferencia1.setText("Pt Referência:");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lblLogradouro)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(lblPtReferencia1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtPtReferencia1))
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCidade)
+                                            .addComponent(lblCep)
+                                            .addComponent(lblBairro))
+                                        .addGap(40, 40, 40)
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cbCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNum)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(215, Short.MAX_VALUE)
+                .addGap(19, 19, 19)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLogradouro)
+                    .addComponent(txtLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNum)
+                    .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(cbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCidade)
+                    .addComponent(cbCidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblBairro)
+                    .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCep)
+                    .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPtReferencia1)
+                    .addComponent(txtPtReferencia1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(97, Short.MAX_VALUE))
         );
-
-        jPanel3.getAccessibleContext().setAccessibleName("Complemento");
 
         jTabbedPane1.addTab("Endereço/Complemento", jPanel2);
 
@@ -574,16 +699,12 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCasaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCasaActionPerformed
 
     private void txtSalasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalasActionPerformed
         // TODO add your handling code here:
@@ -621,14 +742,6 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkLcarmarioActionPerformed
 
-    private void checkGpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGpresaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkGpresaActionPerformed
-
-    private void checkGcobertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGcobertaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkGcobertaActionPerformed
-
     private void checkQcarmarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkQcarmarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_checkQcarmarioActionPerformed
@@ -641,27 +754,51 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkScarmarioActionPerformed
 
-    private void checkGdescobertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkGdescobertaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkGdescobertaActionPerformed
-
     private void txtCasa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCasa1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCasa1ActionPerformed
 
+    private void cbEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadosActionPerformed
+
+        Estados estado = (Estados) cbEstados.getSelectedItem();
+
+        Query cidadesQuery = entityManager1.createQuery("Select c FROM Cidades c WHERE c.estadosIdestados = :idEstado");
+        cidadesQuery.setParameter("idEstado", estado);
+
+        List cidadesList = cidadesQuery.getResultList();
+        cbCidades.removeAllItems();
+        cidadesList.stream().forEach((cidade) -> {
+            cbCidades.addItem(cidade);
+        });
+    }//GEN-LAST:event_cbEstadosActionPerformed
+
+    private void txtNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNumActionPerformed
+
+    private void txtDespensaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDespensaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDespensaActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
+
+    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox cbCidades;
+    private javax.swing.JComboBox cbEstados;
     private javax.swing.JCheckBox checkAqsolar;
     private javax.swing.JCheckBox checkAscarmario;
+    private javax.swing.JCheckBox checkBanheiro;
     private javax.swing.JCheckBox checkCcarmario;
     private javax.swing.JCheckBox checkCirctv;
     private javax.swing.JCheckBox checkDcarmario;
-    private javax.swing.JCheckBox checkDpcarmario;
-    private javax.swing.JCheckBox checkGcoberta;
-    private javax.swing.JCheckBox checkGdescoberta;
-    private javax.swing.JCheckBox checkGlivre;
     private javax.swing.JCheckBox checkGourmet;
-    private javax.swing.JCheckBox checkGpresa;
     private javax.swing.JCheckBox checkJardim;
     private javax.swing.JCheckBox checkLcarmario;
     private javax.swing.JCheckBox checkPteletronico;
@@ -670,48 +807,67 @@ public class CadastroUnidades extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox checkRebgesso;
     private javax.swing.JCheckBox checkScarmario;
     private javax.swing.JCheckBox checkZcarmario;
+    private javax.persistence.EntityManager entityManager1;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblApto;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblApto1;
     private javax.swing.JLabel lblAreaserv;
-    private javax.swing.JLabel lblBloco;
+    private javax.swing.JLabel lblBairro;
+    private javax.swing.JLabel lblBanheiro;
     private javax.swing.JLabel lblBloco1;
-    private javax.swing.JLabel lblCasa;
     private javax.swing.JLabel lblCasa1;
+    private javax.swing.JLabel lblCep;
+    private javax.swing.JLabel lblCidade;
     private javax.swing.JLabel lblCloset;
     private javax.swing.JLabel lblCondominio;
     private javax.swing.JLabel lblCozinha;
     private javax.swing.JLabel lblDependencia;
     private javax.swing.JLabel lblDespensa;
     private javax.swing.JLabel lblEscritorio;
+    private javax.swing.JLabel lblGaraglivre;
+    private javax.swing.JLabel lblGaragpresa;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblLavabo;
+    private javax.swing.JLabel lblLogradouro;
+    private javax.swing.JLabel lblNum;
     private javax.swing.JLabel lblProprierario;
+    private javax.swing.JLabel lblPtReferencia1;
     private javax.swing.JLabel lblQuartos;
     private javax.swing.JLabel lblSalas;
     private javax.swing.JLabel lblSuite;
     private javax.swing.JLabel lblVaranda;
     private javax.swing.JPanel paneCaracteristica;
     private javax.swing.JPanel paneProprietario;
-    private javax.swing.JTextField txtApto;
     private javax.swing.JTextField txtApto1;
     private javax.swing.JTextField txtAreaserv;
-    private javax.swing.JTextField txtBloco;
+    private javax.swing.JTextField txtBairro;
+    private javax.swing.JTextField txtBanheiro;
     private javax.swing.JTextField txtBloco1;
-    private javax.swing.JTextField txtCasa;
     private javax.swing.JTextField txtCasa1;
+    private javax.swing.JTextField txtCep;
     private javax.swing.JTextField txtCloset;
     private javax.swing.JTextField txtCondominio;
     private javax.swing.JTextField txtCozinha;
     private javax.swing.JTextField txtDependeicna;
     private javax.swing.JTextField txtDespensa;
     private javax.swing.JTextField txtEscritorio;
+    private javax.swing.JTextField txtGaraglivre;
+    private javax.swing.JTextField txtGaragpresa;
     private javax.swing.JTextField txtHome;
     private javax.swing.JTextField txtLavabo;
+    private javax.swing.JTextField txtLogradouro;
+    private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtProprierario;
+    private javax.swing.JTextField txtPtReferencia1;
     private javax.swing.JTextField txtQuartos;
     private javax.swing.JTextField txtSalas;
     private javax.swing.JTextField txtSuite;

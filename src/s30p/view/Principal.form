@@ -17,20 +17,20 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnProprietariosActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MnCondominios">
+            <MenuItem class="javax.swing.JMenuItem" name="MnUnidades">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Condom&#xed;nios"/>
+                <Property name="label" type="java.lang.String" value="Unidades"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnCondominiosActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnUnidadesActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MnImoveis">
+            <MenuItem class="javax.swing.JMenuItem" name="MnEmpreendimentos">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Im&#xf3;veis"/>
+                <Property name="text" type="java.lang.String" value="Empreendimentos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnImoveisActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MnEmpreendimentosActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">

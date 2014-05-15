@@ -36,8 +36,8 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MnProprietarios = new javax.swing.JMenuItem();
-        MnCondominios = new javax.swing.JMenuItem();
-        MnImoveis = new javax.swing.JMenuItem();
+        MnUnidades = new javax.swing.JMenuItem();
+        MnEmpreendimentos = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         MnSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -61,21 +61,21 @@ public class Principal extends javax.swing.JFrame {
         });
         jMenu1.add(MnProprietarios);
 
-        MnCondominios.setText("Condomínios");
-        MnCondominios.addActionListener(new java.awt.event.ActionListener() {
+        MnUnidades.setLabel("Unidades");
+        MnUnidades.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnCondominiosActionPerformed(evt);
+                MnUnidadesActionPerformed(evt);
             }
         });
-        jMenu1.add(MnCondominios);
+        jMenu1.add(MnUnidades);
 
-        MnImoveis.setText("Imóveis");
-        MnImoveis.addActionListener(new java.awt.event.ActionListener() {
+        MnEmpreendimentos.setText("Empreendimentos");
+        MnEmpreendimentos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MnImoveisActionPerformed(evt);
+                MnEmpreendimentosActionPerformed(evt);
             }
         });
-        jMenu1.add(MnImoveis);
+        jMenu1.add(MnEmpreendimentos);
         jMenu1.add(jSeparator1);
 
         MnSair.setText("Sair");
@@ -107,34 +107,33 @@ public class Principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MnProprietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnProprietariosActionPerformed
-      CadastroProprietario cadastro = new CadastroProprietario(new Proprietarios());
-      desktop.add(cadastro);
-      cadastro.show();
-    }//GEN-LAST:event_MnProprietariosActionPerformed
-
-    private void MnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSairActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_MnSairActionPerformed
-
     private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
         Dimension d = ((Principal)evt.getSource()).getSize();        
         desktop.setSize(d);
         
     }//GEN-LAST:event_formComponentResized
 
-    private void MnImoveisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnImoveisActionPerformed
-      CadastroImoveis cadastro = new CadastroImoveis();
-      desktop.add(cadastro);
-      cadastro.show();
+    private void MnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnSairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_MnSairActionPerformed
 
-    }//GEN-LAST:event_MnImoveisActionPerformed
+    private void MnEmpreendimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnEmpreendimentosActionPerformed
+        CadastroEmpreendimentos cadastro = new CadastroEmpreendimentos();
+        desktop.add(cadastro);
+        cadastro.show();
+    }//GEN-LAST:event_MnEmpreendimentosActionPerformed
 
-    private void MnCondominiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnCondominiosActionPerformed
-       CadastroUnidades cadastro = new CadastroUnidades();
-       desktop.add(cadastro);
-       cadastro.show();
-    }//GEN-LAST:event_MnCondominiosActionPerformed
+    private void MnUnidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnUnidadesActionPerformed
+        CadastroUnidades cadastro = new CadastroUnidades();
+        desktop.add(cadastro);
+        cadastro.show();
+    }//GEN-LAST:event_MnUnidadesActionPerformed
+
+    private void MnProprietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MnProprietariosActionPerformed
+        CadastroProprietario cadastro = new CadastroProprietario(new Proprietarios());
+        desktop.add(cadastro);
+        cadastro.show();
+    }//GEN-LAST:event_MnProprietariosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,10 +179,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MnCondominios;
-    private javax.swing.JMenuItem MnImoveis;
+    private javax.swing.JMenuItem MnEmpreendimentos;
     private javax.swing.JMenuItem MnProprietarios;
     private javax.swing.JMenuItem MnSair;
+    private javax.swing.JMenuItem MnUnidades;
     private javax.swing.JDesktopPane desktop;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
