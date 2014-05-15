@@ -6,20 +6,42 @@
 
 package s30p.view;
 
+import datechooser.events.SelectionChangedEvent;
+import datechooser.events.SelectionChangedListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.Calendar;
+import java.util.Collection;
+import javax.persistence.Query;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
-import model.Proprietarios;
+import model.beans.Cidade;
+import model.beans.Conta;
+import model.beans.Estado;
+import model.enums.EstadoCivil;
+import model.enums.TipoConta;
+import model.enums.TipoPessoa;
+
 /**
  *
  * @author koonjshah
  */
 public class CadastroProprietario extends javax.swing.JInternalFrame {
     
+    private Conta conta;
+    
     /**
      * Creates new form CadastroProprietario
+     * @param conta conta, pode ser um: proprietario, cliente ou parceiro
      */
-    public CadastroProprietario(Proprietarios proprietario) {
-        this.proprietario = proprietario;
+    public CadastroProprietario(Conta conta) {
+        this.conta = conta;
         initComponents();
+        carregaEstados();
+        initCbEstadoCivil();
+        initBinding();
     }
 
     /**
@@ -30,15 +52,9 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        S30PPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("S30PPU").createEntityManager();
-        estadosQuery = java.beans.Beans.isDesignTime() ? null : S30PPUEntityManager.createQuery("SELECT e FROM Estados e");
-        estadosList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : estadosQuery.getResultList();
-        cidadesQuery = java.beans.Beans.isDesignTime() ? null : S30PPUEntityManager.createQuery("SELECT c FROM Cidades c");
-        cidadesList = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : cidadesQuery.getResultList();
-        proprietario = new model.Proprietarios();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("S30PPU").createEntityManager();
         tabbeCadproprietarios = new javax.swing.JTabbedPane();
         painelPessoal = new javax.swing.JPanel();
         lblnome = new javax.swing.JLabel();
@@ -50,14 +66,13 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         lblCNPJ = new javax.swing.JLabel();
         txtCnpj = new javax.swing.JFormattedTextField();
         lblNasc = new javax.swing.JLabel();
-        txtNasc = new javax.swing.JFormattedTextField();
-        cbEstCivil = new javax.swing.JComboBox();
+        cbEstCivil = new javax.swing.JComboBox<model.enums.EstadoCivil>();
         lblEstCivil = new javax.swing.JLabel();
         lblConj = new javax.swing.JLabel();
         txtConj = new javax.swing.JTextField();
         btIncluir = new javax.swing.JButton();
         btConsultar = new javax.swing.JButton();
-        cbCodigo = new javax.swing.JComboBox();
+        cbCodigo = new javax.swing.JComboBox<model.enums.TipoConta>();
         lblCodigo = new javax.swing.JLabel();
         lblSequencia = new javax.swing.JLabel();
         txtSequencia = new javax.swing.JTextField();
@@ -66,6 +81,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         jbSair = new javax.swing.JButton();
         lblCreci = new javax.swing.JLabel();
         txtCreci = new javax.swing.JTextField();
+        txtNasc = new datechooser.beans.DateChooserCombo();
         painelEndereco = new javax.swing.JPanel();
         cbEstados = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
@@ -125,9 +141,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
 
         lblnome.setText("Nome:");
 
-        org.jdesktop.beansbinding.Binding binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietario, org.jdesktop.beansbinding.ELProperty.create("${nome}"), txtNome, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        bindingGroup.addBinding(binding);
-
         buttonGroup1.add(rbPessoaFisica);
         rbPessoaFisica.setText("Pessoa Física");
         rbPessoaFisica.addActionListener(new java.awt.event.ActionListener() {
@@ -152,9 +165,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
             ex.printStackTrace();
         }
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, proprietario, org.jdesktop.beansbinding.ELProperty.create("${rcpf}"), txtCpf, org.jdesktop.beansbinding.BeanProperty.create("value"));
-        bindingGroup.addBinding(binding);
-
         lblCNPJ.setText("CNPJ:");
         lblCNPJ.setEnabled(false);
 
@@ -162,12 +172,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         txtCnpj.setEnabled(false);
 
         lblNasc.setText("Nascimento:");
-
-        txtNasc.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        txtNasc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtNasc.setText(" /  /");
-
-        cbEstCivil.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Solteiro", "Casado", "Viúvo", "Separado", "Divorciado", "União estável" }));
 
         lblEstCivil.setText("Estado Civil:");
 
@@ -187,7 +191,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
             }
         });
 
-        cbCodigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1- Propprietário", "2- Cliente", "3- Parceiro", "5- Fornecedor", "6- P serviço", "7- Impostos" }));
+        cbCodigo.setModel(new DefaultComboBoxModel<TipoConta>(TipoConta.values()));
 
         lblCodigo.setText("Código:");
 
@@ -240,14 +244,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbSair))
                     .addGroup(painelPessoalLayout.createSequentialGroup()
-                        .addComponent(lblEstCivil)
-                        .addGap(18, 18, 18)
-                        .addComponent(cbEstCivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
-                        .addComponent(lblConj)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtConj, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelPessoalLayout.createSequentialGroup()
                         .addComponent(lblnome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,16 +251,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                         .addComponent(lblCreci)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCreci, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(painelPessoalLayout.createSequentialGroup()
-                        .addComponent(rbPessoaFisica)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCpf)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(153, 153, 153)
-                        .addComponent(lblNasc)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(painelPessoalLayout.createSequentialGroup()
                         .addComponent(lblCodigo)
                         .addGap(18, 18, 18)
@@ -278,8 +264,28 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(lblCNPJ)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(147, Short.MAX_VALUE))
+                        .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelPessoalLayout.createSequentialGroup()
+                            .addGap(5, 5, 5)
+                            .addComponent(lblEstCivil)
+                            .addGap(18, 18, 18)
+                            .addComponent(cbEstCivil, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(lblConj)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtConj, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, painelPessoalLayout.createSequentialGroup()
+                            .addComponent(rbPessoaFisica)
+                            .addGap(18, 18, 18)
+                            .addComponent(lblCpf)
+                            .addGap(12, 12, 12)
+                            .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(153, 153, 153)
+                            .addComponent(lblNasc)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
         painelPessoalLayout.setVerticalGroup(
             painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,17 +308,18 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                     .addComponent(lblCreci)
                     .addComponent(txtCreci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(painelPessoalLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNasc)
-                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rbPessoaFisica)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, painelPessoalLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(painelPessoalLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNasc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lblNasc)
+                                .addComponent(rbPessoaFisica)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -321,12 +328,12 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                     .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(lblConj, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                         .addComponent(txtConj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbPessoaJur)
                     .addComponent(lblCNPJ)
                     .addComponent(txtCnpj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 148, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
                 .addGroup(painelPessoalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btIncluir)
                     .addComponent(btConsultar)
@@ -337,12 +344,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         );
 
         tabbeCadproprietarios.addTab("Dados Pessoais", painelPessoal);
-
-        org.jdesktop.swingbinding.JComboBoxBinding jComboBoxBinding = org.jdesktop.swingbinding.SwingBindings.createJComboBoxBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, estadosList, cbEstados);
-        jComboBoxBinding.setSourceNullValue(null);
-        bindingGroup.addBinding(jComboBoxBinding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, estadosList, org.jdesktop.beansbinding.ObjectProperty.create(), cbEstados, org.jdesktop.beansbinding.BeanProperty.create("selectedItem"));
-        bindingGroup.addBinding(binding);
 
         cbEstados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -396,7 +397,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                                 .addComponent(cbCidades, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
         painelEnderecoLayout.setVerticalGroup(
             painelEnderecoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,28 +463,11 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
 
         lblVlrpag.setText("Valor a pagar:");
 
-        txtVlrrec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVlrrecActionPerformed(evt);
-            }
-        });
-
-        txtVlrpag.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtVlrpagActionPerformed(evt);
-            }
-        });
-
         lblcomrecparc.setText("Comissao a receber %:");
 
         jLabel3.setText("Valor a receber:");
 
         checkVendido.setText("Venda realizada");
-        checkVendido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkVendidoActionPerformed(evt);
-            }
-        });
 
         lblDatavenda.setText("Data:");
 
@@ -557,7 +541,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                                         .addComponent(lblVlrrecprop)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(txtVlrrec, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(186, Short.MAX_VALUE))
+                        .addContainerGap(283, Short.MAX_VALUE))
                     .addGroup(painelContatoLayout.createSequentialGroup()
                         .addComponent(checkVendido)
                         .addGap(77, 77, 77)
@@ -568,7 +552,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
                         .addComponent(lblValorv)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtValorv, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 195, Short.MAX_VALUE))))
+                        .addGap(0, 262, Short.MAX_VALUE))))
         );
         painelContatoLayout.setVerticalGroup(
             painelContatoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,8 +623,8 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabbeCadproprietarios)
-                .addGap(31, 31, 31))
+                .addComponent(tabbeCadproprietarios, javax.swing.GroupLayout.DEFAULT_SIZE, 836, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -652,31 +636,29 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
 
         tabbeCadproprietarios.getAccessibleContext().setAccessibleName("");
 
-        bindingGroup.bind();
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void rbPessoaFisicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPessoaFisicaActionPerformed
-        proprietario.setTipo("F");
+        conta.setTipoPessoa(TipoPessoa.Fisica);
         habilitaPf(true);
         habilitaPj(false);
     }//GEN-LAST:event_rbPessoaFisicaActionPerformed
 
     private void rbPessoaJurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbPessoaJurActionPerformed
-        proprietario.setTipo("J");
+        conta.setTipoPessoa(TipoPessoa.Juridica);
         habilitaPf(false);
         habilitaPj(true);
     }//GEN-LAST:event_rbPessoaJurActionPerformed
 
     private void cbEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbEstadosActionPerformed
      JComboBox combo = (JComboBox) evt.getSource();
-        model.Estados estadoEscolhido = (model.Estados) combo.getSelectedItem();
+        model.beans.Estado estadoEscolhido = (model.beans.Estado) combo.getSelectedItem();
         if(estadoEscolhido != null){
-           cidadesQuery = S30PPUEntityManager.createQuery("Select c FROM Cidades c WHERE c.estadosIdestados = :idEstado");
+            Query cidadesQuery = entityManager.createQuery("Select c FROM Cidade c WHERE c.idestado = :idEstado");
            cidadesQuery.setParameter("idEstado", estadoEscolhido);
            
-           cidadesList = cidadesQuery.getResultList();
+            Collection<Cidade> cidadesList = cidadesQuery.getResultList();
            cbCidades.removeAllItems();
            cidadesList.stream().forEach((cidade) -> {
              cbCidades.addItem(cidade);
@@ -692,7 +674,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btConsultarActionPerformed
 
     private void btIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btIncluirActionPerformed
-        System.out.println("Proprietário: "+proprietario);
+        System.out.println("Proprietário: "+conta);
     }//GEN-LAST:event_btIncluirActionPerformed
 
     private void jbExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcluirActionPerformed
@@ -700,41 +682,25 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbExcluirActionPerformed
 
     private void jbSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSairActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jbSairActionPerformed
 
     private void txtCreciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCreciActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCreciActionPerformed
 
-    private void txtVlrrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVlrrecActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVlrrecActionPerformed
-
-    private void txtVlrpagActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVlrpagActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtVlrpagActionPerformed
-
-    private void checkVendidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkVendidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_checkVendidoActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.persistence.EntityManager S30PPUEntityManager;
     private javax.swing.JButton btAlterar;
     private javax.swing.JButton btConsultar;
     private javax.swing.JButton btIncluir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cbCidades;
-    private javax.swing.JComboBox cbCodigo;
-    private javax.swing.JComboBox cbEstCivil;
+    private javax.swing.JComboBox<model.enums.TipoConta> cbCodigo;
+    private javax.swing.JComboBox<model.enums.EstadoCivil> cbEstCivil;
     private javax.swing.JComboBox cbEstados;
     private javax.swing.JCheckBox checkVendido;
-    private java.util.List<model.Cidades> cidadesList;
-    private javax.persistence.Query cidadesQuery;
-    private java.util.List<model.Estados> estadosList;
-    private javax.persistence.Query estadosQuery;
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
@@ -775,7 +741,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     private javax.swing.JPanel painelContato;
     private javax.swing.JPanel painelEndereco;
     private javax.swing.JPanel painelPessoal;
-    private model.Proprietarios proprietario;
     private javax.swing.JRadioButton rbPessoaFisica;
     private javax.swing.JRadioButton rbPessoaJur;
     private javax.swing.JTabbedPane tabbeCadproprietarios;
@@ -789,7 +754,7 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JFormattedTextField txtFgts;
     private javax.swing.JTextField txtLogradouro;
-    private javax.swing.JFormattedTextField txtNasc;
+    private datechooser.beans.DateChooserCombo txtNasc;
     private javax.swing.JTextField txtNome;
     private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtPercompag;
@@ -805,7 +770,6 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtValorv;
     private javax.swing.JTextField txtVlrpag;
     private javax.swing.JTextField txtVlrrec;
-    private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
 
     
@@ -844,6 +808,113 @@ public class CadastroProprietario extends javax.swing.JInternalFrame {
         
         if(!valor){
             txtCnpj.setText("");
+        }
+    }
+
+    private void initCbEstadoCivil() {
+        for (EstadoCivil estadoCivil : EstadoCivil.values()) {
+            cbEstCivil.addItem(estadoCivil);
+        }
+    }
+
+    private void initBinding() {
+        txtNome.setText(conta.getNome());
+        txtNome.addKeyListener(new KeyAdapter(){
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.setNome(txtNome.getText());
+            }
+        });
+        
+        txtCpf.setText(conta.getRcpf());
+        txtCpf.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.setRcpf(txtCpf.getText());
+            }
+        });
+        
+        txtCreci.setText(conta.getCreci().toString());
+        txtCreci.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.setCreci(Integer.valueOf(txtCreci.getText()));
+            }            
+        });
+        
+        txtConj.setText(conta.getConjuge());
+        txtConj.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.setConjuge(txtConj.getText());
+            }
+        });
+        
+        txtCnpj.setText(conta.getCnpj());
+        txtCnpj.addKeyListener(new KeyAdapter() {
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.setCnpj(txtCnpj.getText());
+            }
+        });
+        
+        txtNasc.setMaxDate(Calendar.getInstance());
+        
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(conta.getNascimento());
+        txtNasc.setCurrent(cal);
+        txtNasc.addSelectionChangedListener(new SelectionChangedListener() {
+            @Override
+            public void onSelectionChange(SelectionChangedEvent sce) {
+                conta.setNascimento(txtNasc.getSelectedDate().getTime());
+            }
+        });
+        
+        cbEstCivil.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                Object escolhido = cbEstCivil.getSelectedItem();
+                try {
+                    if(escolhido instanceof EstadoCivil){
+                        EstadoCivil estado = (EstadoCivil) escolhido;
+                        conta.setEstcivil(estado);
+                    } else {
+                        throw new IllegalArgumentException("Deveria ser um Estado Civil");
+                    }    
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        
+        txtLogradouro.setText(conta.getIdendereco().getEndereco());
+        txtLogradouro.addKeyListener(new KeyAdapter(){
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                conta.getIdendereco().setEndereco(txtLogradouro.getText());
+            }
+        });
+    }
+
+    private void carregaEstados() {
+        Query estadoQuery = entityManager.createQuery("Select e FROM Estado e");
+        
+        Collection<model.beans.Estado> estados = estadoQuery.getResultList();
+        System.out.println("estados: "+ estados);
+        cbEstados.removeAllItems();
+        estados.stream().forEach((estado) -> {
+            cbEstados.addItem(estado);
+        });
+        
+         if(conta.getIdendereco().getIdcidade() != null){
+            Estado estado = conta.getIdendereco().getIdcidade().getIdestado();
+            cbEstados.setSelectedItem(estado);
         }
     }
 }

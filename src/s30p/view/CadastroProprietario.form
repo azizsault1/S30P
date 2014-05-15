@@ -4,48 +4,10 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
     </Component>
-    <Component class="javax.persistence.EntityManager" name="S30PPUEntityManager">
+    <Component class="javax.persistence.EntityManager" name="entityManager">
       <Properties>
-        <Property name="persistenceUnit" type="java.lang.String" value="S30PPU"/>
+        <Property name="persistenceUnit" type="java.lang.String" value="pu"/>
       </Properties>
-    </Component>
-    <Component class="javax.persistence.Query" name="estadosQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT e FROM Estados e"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="S30PPUEntityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="estadosList">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="estadosQuery"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Estados&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.persistence.Query" name="cidadesQuery">
-      <Properties>
-        <Property name="query" type="java.lang.String" value="SELECT c FROM Cidades c"/>
-        <Property name="entityManager" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$EMProperty$EntityManagerEditor">
-          <ComponentRef name="S30PPUEntityManager"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="java.util.List" name="cidadesList">
-      <Properties>
-        <Property name="query" type="java.lang.Object" editor="org.netbeans.modules.form.j2ee.J2EEPropertyModifier$QueryBeanProperty$QueryEditor">
-          <ComponentRef name="cidadesQuery"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Cidades&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="model.Proprietarios" name="proprietario">
     </Component>
   </NonVisualComponents>
   <Properties>
@@ -71,10 +33,10 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="tabbeCadproprietarios" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="tabbeCadproprietarios" pref="836" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,15 +89,6 @@
                               <Component id="jbSair" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblEstCivil" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="cbEstCivil" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Component id="lblConj" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtConj" min="-2" pref="237" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
                               <Component id="lblnome" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="txtNome" min="-2" pref="303" max="-2" attributes="0"/>
@@ -143,17 +96,6 @@
                               <Component id="lblCreci" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtCreci" min="-2" pref="74" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rbPessoaFisica" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="txtCpf" min="-2" pref="96" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                              <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtNasc" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="lblCodigo" min="-2" max="-2" attributes="0"/>
@@ -171,8 +113,31 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtCnpj" min="-2" pref="102" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                                  <Component id="lblEstCivil" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="cbEstCivil" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="lblConj" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtConj" min="-2" pref="237" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="rbPessoaFisica" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="lblCpf" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                  <Component id="txtCpf" min="-2" pref="96" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
+                                  <Component id="lblNasc" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="txtNasc" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="147" max="32767" attributes="0"/>
+                      <EmptySpace pref="148" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -203,19 +168,21 @@
                           <Component id="txtCreci" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblNasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNasc" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="rbPessoaFisica" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="txtCpf" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblCpf" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtNasc" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblNasc" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="rbPessoaFisica" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -230,13 +197,13 @@
                               <Component id="txtConj" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rbPessoaJur" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblCNPJ" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCnpj" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="148" max="32767" attributes="0"/>
+                      <EmptySpace pref="174" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -256,11 +223,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtNome">
-              <BindingProperties>
-                <BindingProperty name="text" source="proprietario" sourcePath="${nome}" target="txtNome" targetPath="text" updateStrategy="0" immediately="false">
-                  <BindingParameter name="javax.swing.binding.ParameterKeys.TEXT_CHANGE_STRATEGY" value="javax.swing.binding.TextChangeStrategy.ON_TYPE"/>
-                </BindingProperty>
-              </BindingProperties>
             </Component>
             <Component class="javax.swing.JRadioButton" name="rbPessoaFisica">
               <Properties>
@@ -295,9 +257,6 @@
                   <Format format="###.###.###-##" subtype="-1" type="5"/>
                 </Property>
               </Properties>
-              <BindingProperties>
-                <BindingProperty name="value" source="proprietario" sourcePath="${rcpf}" target="txtCpf" targetPath="value" updateStrategy="0" immediately="false"/>
-              </BindingProperties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCNPJ">
               <Properties>
@@ -316,28 +275,15 @@
                 <Property name="text" type="java.lang.String" value="Nascimento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="txtNasc">
-              <Properties>
-                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                  <Format subtype="0" type="1"/>
-                </Property>
-                <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value=" /  /"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JComboBox" name="cbEstCivil">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="Solteiro"/>
-                    <StringItem index="1" value="Casado"/>
-                    <StringItem index="2" value="Vi&#xfa;vo"/>
-                    <StringItem index="3" value="Separado"/>
-                    <StringItem index="4" value="Divorciado"/>
-                    <StringItem index="5" value="Uni&#xe3;o est&#xe1;vel"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.enums.EstadoCivil&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblEstCivil">
               <Properties>
@@ -369,17 +315,13 @@
             </Component>
             <Component class="javax.swing.JComboBox" name="cbCodigo">
               <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="6">
-                    <StringItem index="0" value="1- Proppriet&#xe1;rio"/>
-                    <StringItem index="1" value="2- Cliente"/>
-                    <StringItem index="2" value="3- Parceiro"/>
-                    <StringItem index="3" value="5- Fornecedor"/>
-                    <StringItem index="4" value="6- P servi&#xe7;o"/>
-                    <StringItem index="5" value="7- Impostos"/>
-                  </StringArray>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="new DefaultComboBoxModel&lt;TipoConta&gt;(TipoConta.values())" type="code"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.enums.TipoConta&gt;"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCodigo">
               <Properties>
@@ -428,6 +370,11 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCreciActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="datechooser.beans.DateChooserCombo" name="txtNasc">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -478,7 +425,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="166" max="32767" attributes="0"/>
+                      <EmptySpace pref="250" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -524,14 +471,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JComboBox" name="cbEstados">
-              <BindingProperties>
-                <BindingProperty name="elements" source="estadosList" target="cbEstados" targetPath="elements" updateStrategy="0" immediately="false">
-                  <Property name="nullValue" type="java.util.List" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                    <ComponentRef name="null"/>
-                  </Property>
-                </BindingProperty>
-                <BindingProperty name="selectedItem" source="estadosList" target="cbEstados" targetPath="selectedItem" updateStrategy="0" immediately="false"/>
-              </BindingProperties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbEstadosActionPerformed"/>
               </Events>
@@ -688,7 +627,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="186" max="32767" attributes="0"/>
+                              <EmptySpace pref="283" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="checkVendido" min="-2" max="-2" attributes="0"/>
@@ -700,7 +639,7 @@
                               <Component id="lblValorv" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="txtValorv" min="-2" pref="104" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="195" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="262" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -873,14 +812,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtVlrrec">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVlrrecActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtVlrpag">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtVlrpagActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblcomrecparc">
               <Properties>
@@ -900,9 +833,6 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Venda realizada"/>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkVendidoActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblDatavenda">
               <Properties>

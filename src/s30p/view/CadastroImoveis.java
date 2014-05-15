@@ -28,6 +28,7 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        S30PPUEntityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("S30PPU").createEntityManager();
         tabbeCadimoveis = new javax.swing.JTabbedPane();
         panelDescricao = new javax.swing.JPanel();
         cboTipo = new javax.swing.JComboBox();
@@ -38,7 +39,6 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
         txtAreaut = new javax.swing.JTextField();
         lblProprietario = new javax.swing.JLabel();
         lblCondominio = new javax.swing.JLabel();
-        txtProprietario = new javax.swing.JTextField();
         txtCondominio = new javax.swing.JTextField();
         jCheckBox1 = new javax.swing.JCheckBox();
         lblTmpoconst = new javax.swing.JLabel();
@@ -70,6 +70,8 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
         checkPropreside = new javax.swing.JCheckBox();
         checkVazio = new javax.swing.JCheckBox();
         jSeparator1 = new javax.swing.JSeparator();
+        uJComboBox1 = new componentes.UJComboBox();
+        uJComboBox1.setAutocompletar(true);
         panelCaracteristica = new javax.swing.JPanel();
         checkPiscina = new javax.swing.JCheckBox();
         checkChurrasqueira = new javax.swing.JCheckBox();
@@ -205,14 +207,6 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtAreaut, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelDescricaoLayout.createSequentialGroup()
-                        .addComponent(lblProprietario)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDescricaoLayout.createSequentialGroup()
-                        .addComponent(lblCondominio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelDescricaoLayout.createSequentialGroup()
                         .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(panelDescricaoLayout.createSequentialGroup()
                                 .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -275,7 +269,16 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(txtPzentrega, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtUnpandr, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                            .addComponent(txtUnpandr, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                    .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelDescricaoLayout.createSequentialGroup()
+                            .addComponent(lblProprietario)
+                            .addGap(18, 18, 18)
+                            .addComponent(uJComboBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelDescricaoLayout.createSequentialGroup()
+                            .addComponent(lblCondominio)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(txtCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(137, Short.MAX_VALUE))
             .addGroup(panelDescricaoLayout.createSequentialGroup()
                 .addComponent(jSeparator1)
@@ -287,7 +290,7 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblProprietario)
-                    .addComponent(txtProprietario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(uJComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelDescricaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCondominio)
@@ -345,7 +348,7 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
                     .addComponent(checkInquilino)
                     .addComponent(checkPropreside)
                     .addComponent(checkVazio))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbeCadimoveis.addTab("Descrição", panelDescricao);
@@ -542,6 +545,7 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager S30PPUEntityManager;
     private javax.swing.JComboBox cboTipo;
     private javax.swing.JCheckBox checkAcademia;
     private javax.swing.JCheckBox checkBrinquedo;
@@ -597,11 +601,11 @@ public class CadastroImoveis extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCondominio;
     private javax.swing.JTextField txtIptu;
     private javax.swing.JTextField txtPavim;
-    private javax.swing.JTextField txtProprietario;
     private javax.swing.JTextField txtPzentrega;
     private javax.swing.JTextField txtTotun;
     private javax.swing.JTextField txtTpoconst;
     private javax.swing.JTextField txtUnpandr;
     private javax.swing.JTextField txtValor;
+    private componentes.UJComboBox uJComboBox1;
     // End of variables declaration//GEN-END:variables
 }
